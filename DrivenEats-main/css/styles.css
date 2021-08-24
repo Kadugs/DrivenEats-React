@@ -1,0 +1,193 @@
+
+/* GERAL */
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #E5E5E5;
+    padding-bottom: 120px;
+    overflow-x: hidden;
+}
+h1,
+h2 {
+    font-family: 'Righteous', cursive;
+    margin-left: 20px;
+}
+h2 {
+    font-size: 26px;
+}
+strong {
+    font-weight: bold;
+}
+
+/*------------------- TOPO  -------------------------*/
+
+.topo {
+    z-index: 1;
+    position: fixed;
+    width: 100vw;
+    height: 92px;
+    background: rgb(207, 43, 43);
+    color: white;
+    box-shadow: 2px 0 4px 4px rgb(0, 0, 0, 0.3);
+    padding-top: 10px;
+    left: 0;
+    top: 0;
+}
+.topo h1 {
+    font-size: 44px;
+}
+.topo p {
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+/*------------------- CONTEÚDO  -------------------------*/
+
+
+.conteudo {
+    margin-top: 120px;
+}
+.conteudo > div {
+    margin-top: 20px;
+}
+.opcoes {
+    display: flex;
+    overflow: scroll;
+    margin-top: 10px;
+}
+.opcoes li {
+    background-color: white;
+    width: 172px;
+    border-radius: 8px;
+    margin-left: 20px;
+    box-shadow: 1px 1px 10px -4px rgba(0, 0, 0, 0.4);
+    padding-bottom: 10px;
+    position: relative;
+}
+ion-icon {
+    color: rgba(50, 183, 47, 1);
+    position: absolute;
+    bottom: 10px;
+    right: 10px;   
+}
+.escondido {
+    display: none;
+}
+.opcoes li:last-child {
+    margin-right: 20px;
+}
+.opcoes p {
+    font-size: 16px;
+    margin-left: 10px;
+    margin-top: 9px;
+}
+.prato-selecionado,
+.bebida-selecionada,
+.sobremesa-selecionada {
+    border: solid 4px rgba(50, 183, 47, 1);
+}
+img {
+    box-sizing: content-box;   
+    width: 144px;
+    border-radius: 4px;
+    margin: 15px 10px 0 10px;
+    height: 80px;
+    object-fit: cover;
+}
+.descricao-pedido {
+    color: rgb(182, 179, 179);
+    font-size: 14px !important;
+    font-weight: 300;
+}
+
+/*------------------- BOTÃO CONFIRMAR PEDIDO  -------------------------*/
+
+.barra-confirmar {
+    width: 100vw;
+    height: 90px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 90px;
+    background-color: white;
+    display: flex;
+}
+.botao-confirmar {
+    height: 80%;
+    width: 80%;
+    margin: auto auto;
+    color: white;
+    background-color: rgb(203, 203, 203);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botao-confirmar p {
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    width: 200px;
+    letter-spacing: 1.8%;
+    user-select: none;
+}
+.liberar-confirmacao {
+    background-color: rgba(50, 183, 47, 1);
+}
+.liberar-confirmacao p {
+    font-weight: bold;
+}
+
+/*------------------- TELA DE CONFIRMAR PEDIDO  -------------------------*/
+.tela-de-confirmacao {
+    z-index: 1;
+    position: fixed; 
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+.bloco-confirmar {
+    box-sizing: content-box;
+    background-color: rgb(80, 208, 116);
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    width: 90vw;
+    height: 350px;
+    box-shadow: 0px 0px 10px 1px rgb(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.container-confirmar-infos {
+    margin: 20px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.container-confirmar-infos div {
+    display: flex;
+    justify-content: space-between;
+}
+.centro {
+    margin: auto;
+}
+.botao-tudo-certo {
+    background-color: white;
+    color: rgb(80, 208, 116);
+    width: 90%;
+    height: 50px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
