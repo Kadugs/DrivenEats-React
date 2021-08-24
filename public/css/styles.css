@@ -23,7 +23,7 @@ strong {
 
 /*------------------- TOPO  -------------------------*/
 
-.topo {
+header {
     z-index: 1;
     position: fixed;
     width: 100vw;
@@ -35,10 +35,10 @@ strong {
     left: 0;
     top: 0;
 }
-.topo h1 {
+header h1 {
     font-size: 44px;
 }
-.topo p {
+header p {
     font-size: 14px;
     margin-left: 20px;
 }
@@ -46,10 +46,10 @@ strong {
 /*------------------- CONTEÚDO  -------------------------*/
 
 
-.conteudo {
+main {
     margin-top: 120px;
 }
-.conteudo > div {
+main > div {
     margin-top: 20px;
 }
 .opcoes {
@@ -104,7 +104,7 @@ img {
 
 /*------------------- BOTÃO CONFIRMAR PEDIDO  -------------------------*/
 
-.barra-confirmar {
+footer {
     width: 100vw;
     height: 90px;
     position: fixed;
