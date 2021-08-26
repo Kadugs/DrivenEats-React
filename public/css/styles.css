@@ -24,7 +24,7 @@ strong {
 /*------------------- TOPO  -------------------------*/
 
 header {
-    z-index: 1;
+    z-index: 3;
     position: fixed;
     width: 100vw;
     height: 92px;
@@ -57,9 +57,13 @@ main > div {
     overflow: scroll;
     margin-top: 10px;
 }
+.opcoes::-webkit-scrollbar {
+    display: none;
+}
 .opcoes li {
     background-color: white;
     width: 172px;
+    min-height: 200px;
     border-radius: 8px;
     margin-left: 20px;
     box-shadow: 1px 1px 10px -4px rgba(0, 0, 0, 0.4);
@@ -72,6 +76,23 @@ ion-icon {
     bottom: 10px;
     right: 10px;   
 }
+li > div {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 4px;
+}
+li div p:last-child span {
+    margin: 6px;
+    font-size: 20px;
+    z-index: 3;
+    cursor: pointer;
+}
+
 .escondido {
     display: none;
 }
@@ -83,10 +104,11 @@ ion-icon {
     margin-left: 10px;
     margin-top: 9px;
 }
-.prato-selecionado,
-.bebida-selecionada,
-.sobremesa-selecionada {
+.selected {
     border: solid 4px rgba(50, 183, 47, 1);
+}
+.disabled {
+    border: none;
 }
 img {
     box-sizing: content-box;   
@@ -113,6 +135,7 @@ footer {
     height: 90px;
     background-color: white;
     display: flex;
+    z-index: 3;
 }
 .botao-confirmar {
     height: 80%;
@@ -154,7 +177,7 @@ footer {
     align-items: center;
     font-size: 22px;
 }
-.bloco-confirmar {
+.tela-de-confirmacao > div {
     box-sizing: content-box;
     background-color: rgb(80, 208, 116);
     color: rgba(255, 255, 255, 0.9);
@@ -189,5 +212,10 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-
+}
+.red {
+    color: red
+}
+.green {
+    color: rgb(80, 208, 116);
 }
