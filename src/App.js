@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
+import Confirm from "./components/Confirm";
 import React from "react";
 import './css/reset.css';
 import './css/styles.css';
@@ -143,7 +144,7 @@ export default function App() {
         }
     ]
 
-    
+    let isOk = false;
     return(
         <>
             <Header />
@@ -155,7 +156,9 @@ export default function App() {
             />
             <Footer 
                 data={data}
+                ok={isOk}
             />
+            {isOk === true ? () => <Confirm /> : console.log("nada")}
         </>
     );
 }
