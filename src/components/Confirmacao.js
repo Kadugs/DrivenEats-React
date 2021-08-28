@@ -40,8 +40,7 @@ export default function Confirmacao() {
     );
 }
 
-function Valores(props) {
-    const {name, price} = props;
+function Valores({name, price}) {
     return (
     <div>
         <p>{name}</p>
