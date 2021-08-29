@@ -3,6 +3,9 @@
 * {
     box-sizing: border-box;
 }
+a {
+    text-decoration: none;
+}
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #E5E5E5;
@@ -164,7 +167,7 @@ footer {
 
 /*------------------- TELA DE CONFIRMAR PEDIDO  -------------------------*/
 .tela-de-confirmacao {
-    z-index: 10;
+    z-index: 1;
     position: fixed; 
     right: 0;
     bottom: 0;
@@ -211,10 +214,14 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
 }
 .red {
     color: red
 }
 .green {
     color: rgb(80, 208, 116);
+}
+.white {
+    color: white;
 }
