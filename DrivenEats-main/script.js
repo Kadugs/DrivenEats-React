@@ -69,14 +69,6 @@ function confirmarPedido() {
     if(botao.classList.contains("liberar-confirmacao")) {
         nomeUsuario = prompt("Qual é o seu nome?");
         enderecoUsuario = prompt("Qual é o seu endereço?");
-        mensagem = encodeURIComponent( `Olá, gostaria de fazer o pedido:
-         - Prato: ${nomePrato}
-         - Bebida: ${nomeBebida}
-         - Sobremesa: ${nomeSobremesa}
-         Total: R$ ${valorTotal.toFixed(2)}
-         
-         Nome: ${nomeUsuario}
-         Endereço: ${enderecoUsuario}`);
         janelaConfirmacao();
     }
 }
