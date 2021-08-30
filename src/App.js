@@ -2,13 +2,15 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
 import React from "react";
+import Confirm from "./components/Confirm";
+import { BrowserRouter as Router,
+    Switch,
+    Route} from "react-router-dom";
+
 import './css/reset.css';
 import './css/styles.css';
 
 export default function App() {
-
-
-
     const [number, setNumber] = React.useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     function sumNum(index) {
         const newNum = [...number]
@@ -142,18 +144,53 @@ export default function App() {
             ]
         }
     ]
+    const finalData = [
+        {
+            name: [],
+            qtd: [],
+            price: [],
+        },
+        {
+            name: [],
+            qtd: [],
+            price: [],
+        },
+        {
+            name: [],
+            qtd: [],
+            price: [],
+        },
+    ];
+    const total = {
+        valor: 0
+    };
     return(
         <>
             <Header />
-            <Main 
-                sumNum={sumNum}
-                subtrNum={subtrNum}
-                number={number}
-                data={data}
-            /> 
-            <Footer 
-                data={data}
-            />
+            <Router>
+                <Switch>
+                    <Route exact path="/">
+                        <Main 
+                            sumNum={sumNum}
+                            subtrNum={subtrNum}
+                            number={number}
+                            data={data}
+                        />
+                        <Footer 
+                            data={data}
+                            finalData={finalData}
+                            total={total}
+                        />
+                    </Route>
+                    <Route exact path="/revisar">
+                        <Confirm 
+                            finalData={finalData}
+                            total={total}
+                         />
+                    </Route>
+                </Switch>
+            </Router>
+
         </>
     );
 }

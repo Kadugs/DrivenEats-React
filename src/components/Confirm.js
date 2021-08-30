@@ -1,39 +1,57 @@
-/*import Valors from "./Valors";
-import App from "../App";
+import Valors from "./Valors";
 import { BrowserRouter as Router,
-    Switch,
-    Route,
     Link} from "react-router-dom";
 
-export default function Confirmacao (data) {
-    const finalData = []
+export default function Confirm (
+    {
+        finalData,
+        total
+    }
+    ) {
+    function addText(indice) { 
+        let text = ``;
+        for(let i = 0; i < finalData[indice].name.length; i++) {
+            text += `${finalData[indice].name[i]} `
+            if(finalData[indice].qtd[i] > 1) {
+                text += `(${finalData[indice].qtd[i]}X) \n      `
+            } else {
+                text += `\n     `
+            }
+        }
+        return text;
+    }
+    function openWpp() {
+        const mensagem = encodeURIComponent( 
+    `Olá, gostaria de fazer o pedido:
+    - Prato: ${addText(0)}
+    - Bebida: ${addText(1)}
+    - Sobremesa: ${addText(2)}
+    Total: R$ ${total.valor.toFixed(2)}
+    `);
+        window.open(`https://wa.me/5533988418125?text=${mensagem}`);
+    }
     return (
-        <Router>
-            <div className="tela-de-confirmacao">
-                <div>
-                    <p className="centro">Confirme seu pedido</p>
-                    <div className="container-confirmar-infos">
-                        {finalData.map( (index) => (
-                            <Valors 
+        <>
+            <h2 className="revisao">Revise seu pedido</h2>
+            <div className="confirmar-pedido">
+                <div className="container-confirmar-infos centro">
+                    {finalData.map( (itens, index) => (
+                        <Valors 
+                            itens={itens}
                             key={index}
-                            finalData={finalData}
-                            />
-                            ))}
-                    </div>
-                    
-                    <Link className="centro botao-tudo-certo" >
-                        <div>
-                            <p>Tudo certo, pode pedir!</p>
+                        />))}
+                        <div>    
+                            <strong>TOTAL</strong>
+                            <strong>R$ {total.valor.toFixed(2)}</strong>
                         </div>
-                    </Link>
-
-                    <Link to="/" className="centro">
-                        <div>
-                            <p className="white">Cancelar</p>
-                        </div>
-                    </Link>
                 </div>
+                <div onClick={openWpp} className="botao-tudo-certo">
+                    <p>Tudo certo, pode pedir!</p>
+                </div>
+                <Link to="/" className="centro cancelar">
+                    <strong>Cancelar</strong>
+                </Link>
             </div>
-        </Router>
+        </>
     );
-}*/
+}

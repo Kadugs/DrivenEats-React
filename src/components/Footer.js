@@ -1,10 +1,7 @@
-// import Confirm from "./Confirm";
-// import { BrowserRouter as Router,
-//     Switch,
-//     Route,
-//     Link} from "react-router-dom";
+import { BrowserRouter as Router,
+    Link} from "react-router-dom";
 
-export default function Footer({data}) {
+export default function Footer({finalData, data, total}) {
     let contador = 0;
     for(let i = 0; i < data.length; i++) {
         for(let j = 0; j < data[i].options.length; j++) {
@@ -23,88 +20,23 @@ export default function Footer({data}) {
             </footer>
         );
     }
-    const finalData = [
-        {
-            name: [],
-            qtd: [],
-            price: [],
-        },
-        {
-            name: [],
-            qtd: [],
-            price: [],
-        },
-        {
-            name: [],
-            qtd: [],
-            price: [],
-        },
-        {
-            type: 'total',
-            name: 'TOTAL',
-            price: 0,
-        }
-    ];
     for(let i = 0; i < data.length; i++) {
         for(let j = 0; j < data[i].options.length; j++) {
             if(data[i].options[j].qtd !== 0) {
                 finalData[i].name.push(data[i].options[j].name);
                 finalData[i].qtd.push(data[i].options[j].qtd);
                 finalData[i].price.push(data[i].options[j].price);
-                finalData[3].price += data[i].options[j].price * data[i].options[j].qtd;
+                total.valor += data[i].options[j].price * data[i].options[j].qtd;
             }
         }
-    }
-    function addText(indice) { 
-            let text = ``;
-            for(let i = 0; i < finalData[indice].name.length; i++) {
-                text += `${finalData[indice].name[i]} `
-                if(finalData[indice].qtd[i] > 1) {
-                    text += `(${finalData[indice].qtd[i]}X) \n      `
-                } else {
-                    text += `\n     `
-                }
-            }
-            return text;
-    }
-    
-
-    function openWpp() {
-        const mensagem = encodeURIComponent( 
-    `Olá, gostaria de fazer o pedido:
-    - Prato: ${addText(0)}
-    - Bebida: ${addText(1)}
-    - Sobremesa: ${addText(2)}
-    Total: R$ ${finalData[3].price.toFixed(2)}
-    `);
-        window.open(`https://wa.me/5533988418125?text=${mensagem}`);
     }
 
     return (
         <footer>
-                <div className="botao-confirmar liberar-confirmacao" onClick={openWpp}>
+            <Link to='/revisar' className="botao-confirmar liberar-confirmacao">
                     <p>Fechar pedido</p>
-                </div> 
+            </Link>
          </footer>
     )
 
-    // return(
-    //     <Router>
-    //         <footer>
-    //             <Link to='/Confirm' className="botao-confirmar liberar-confirmacao">
-    //                 <div >
-    //                     <p>Fechar pedido</p>
-    //                 </div>
-    //             </Link>
-
-    //             <Switch>
-    //                 <Route exact path="/Confirm">
-    //                     <Confirm 
-    //                         data={data}
-    //                     />
-    //                 </Route>
-    //             </Switch>
-    //         </footer>
-    //     </Router>
-    // );
 }
